@@ -21,10 +21,10 @@ import br.com.fiap.repository.BotRepository;
 import br.com.fiap.repository.SegmentsRepository;
 
 @Controller
-@RequestMapping("/bot")
+@RequestMapping("/boot")
 public class BotController {
 
-	private static final String BOT_FOLDER = "bot/";
+	private static final String BOT_FOLDER = "boot/";
 	
 	@Autowired
 	public BotRepository repository;
@@ -93,7 +93,7 @@ public class BotController {
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
 		repository.deleteById(id);
-		redirectAttributes.addFlashAttribute("messages", "BOT excluído com sucesso!");
+		redirectAttributes.addFlashAttribute("messages", "BOT excluÃ­do com sucesso!");
 
 		return "redirect:/bot";
 	}
