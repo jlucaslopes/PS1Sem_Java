@@ -1,14 +1,15 @@
 package br.com.fiap.model;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
@@ -23,7 +24,7 @@ public class BotModel {
 	private String farewell_msg; 
 	private BigDecimal downtime; 
 	private String default_answer; 
-	private List<SegmentsModel> segments;
+	private SegmentsModel segments;
 	
 	public BotModel() {
 	}
@@ -101,14 +102,17 @@ public class BotModel {
 		this.default_answer = default_answer;
 	}
 
-	@OneToMany(mappedBy = "segments")
-	public List<SegmentsModel> getSegments() {
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_SEGMENTS", nullable = false)
+	public SegmentsModel getSegments() {
 		return segments;
 	}
 
-	public void setSegments(List<SegmentsModel> segments) {
+	public void setSegments(SegmentsModel segments) {
 		this.segments = segments;
 	}
+
+	
 	
 	
 }
