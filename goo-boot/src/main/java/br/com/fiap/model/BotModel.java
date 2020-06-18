@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -101,7 +104,7 @@ public class BotModel {
 		this.default_answer = default_answer;
 	}
 
-	@OneToMany(mappedBy = "segments")
+	@OneToMany(mappedBy="bot")
 	public List<SegmentsModel> getSegments() {
 		return segments;
 	}
@@ -109,6 +112,5 @@ public class BotModel {
 	public void setSegments(List<SegmentsModel> segments) {
 		this.segments = segments;
 	}
-	
 	
 }

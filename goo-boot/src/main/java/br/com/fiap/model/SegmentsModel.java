@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -33,7 +32,7 @@ public class SegmentsModel {
 	@Id
 	@Column(name = "ID_SEGMENTS")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEGMENTS_SEQ")
-	@SequenceGenerator(name = "SEGMENT_SEQ", sequenceName = "SEGMENT_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "SEGMENTS_SEQ", sequenceName = "SEGMENTS_SEQ", allocationSize = 1)
 	public long getId_segments() {
 		return id_segments;
 	}
@@ -53,16 +52,13 @@ public class SegmentsModel {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_SEGMENTS", nullable = true)
+	@JoinColumn(name = "ID_BOT", nullable = true)
 	public BotModel getBot() {
 		return bot;
 	}
 
 	public void setBot(BotModel bot) {
 		this.bot = bot;
-	}
-	
-	
-	
+	}	
 	
 }
