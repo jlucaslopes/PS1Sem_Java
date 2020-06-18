@@ -21,10 +21,10 @@ import br.com.fiap.repository.BotRepository;
 import br.com.fiap.repository.SegmentsRepository;
 
 @Controller
-@RequestMapping("/boot")
+@RequestMapping("/bot")
 public class BotController {
 
-	private static final String BOT_FOLDER = "boot/";
+	private static final String BOT_FOLDER = "bot/";
 	
 	@Autowired
 	public BotRepository repository;

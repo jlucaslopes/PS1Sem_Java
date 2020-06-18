@@ -33,7 +33,7 @@
 				<li class="nav-item active"><a class="nav-link" href="#">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="${contextPath}/boot-novo">Opinions</a>
+				<li class="nav-item"><a class="nav-link" href="#">Opinions</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav nav-flex-icons">
@@ -70,93 +70,50 @@
 	<div class="containerlogo align-top py-5">
 
 		<div class="row overflow-hidden shadow-lg rounded"
-			style="height: 37rem; background-color: #2E466D">
-			<!-- Users box-->
-			<div class="col-5 px-1 pt-3">
-				<div class="bg-white">
-					<div class="bg-gray px-4 py-2 bg-light">
-						<p class="h5 mb-0 py-1" style="text-align: center">
-							<button type="button" style="float: left" class="create" value="create"
-								aria-label="create">
-								<a href="${contextPath}/boot/form?page=boot-novo">
-									<i class="fa fa-plus"> Criar Bot</i>
-								</a>
-							</button>
-							Bots
-						</p>
-					</div>
+			style="width: 45rem; height: 37rem; background-color: #2E466D">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="well">
 
-					<div class="messages-box bg-light">
-						<div class="list-group rounded-0">
-							<c:forEach items="${boot}" var="boot">
-								<a
-									class="list-group-item list-group-item-action active text-white rounded-0">
-									<div class="media">
-										<img src="${contextPath}/assets/chatbot.png" alt="user"
-											width="50" class="rounded-circle">
-										<div class="media-body ml-4">
-											<div
-												class="d-flex align-items-center justify-content-between mb-1">
-												<h6 class="mb-0">${boot.name}</h6>
-												<button type="button" value="excluir"
-													style="float: right; background-color: transparent; border: 0px; color: red"
-													class="excluir" >
-													<i class="fa fa-ban"></i>
-												</button>
-											</div>
-										</div>
-									</div>
-								</a>
-							</c:forEach>
-						</div>
+						<h2>Novo Bot</h2>
+
+						<form:form modelAttribute="botModel" action="${contextPath}/boot"
+							method="post">
+
+							<spring:hasBindErrors name="botModel">
+								<div class="alert alert-danger" role="alert">
+									<form:errors path="*" class="has-error" />
+								</div>
+							</spring:hasBindErrors>
+
+							<div class="form-group">
+								<label class="control-label" for="name">Nome:</label>
+								<form:input type="text" path="name" id="name"
+									class="form-control" maxlength="50" size="50" />
+								<font color="red"><form:errors path="name" /></font><br />
+							</div>
+
+							<div class="form-group">
+								<label class="control-label" for="segments">Segmento:</label>
+
+								<form:select path="segments">
+									<form:options items="${segments}" itemValue="id_segments"
+										itemLabel="name" />
+								</form:select>
+							</div>
+							<hr>
+
+							<a class="btn btn-default btn-lg" href="${contextPath}/boot">Cancelar</a>
+							<button type="submit" class="btn btn-primary btn-lg">Criar</button>
+
+							<br>
+							<br>
+						</form:form>
+
 					</div>
 				</div>
 			</div>
-			<!-- Chat Box-->
-			<div class="col-7 px-1 pt-3">
-				<div class="px-4 py-5 chat-box bg-chatboot">
-					<div class="media w-70 mb-3">
-						<img src="${contextPath}/assets/chatbot.png" alt="user" width="50"
-							class="rounded-circle">
-						<div class="media-bodychat ml-3">
-							<div class="bg-primary rounded py-2 px-3 mb-2">
-								<p class="text-small mb-0 text-white">Hi my name is Goobot.
 
-									I'm a bot to talk about many things with u like feelings,
-									games, culinary, Sports and others. And u what's your name?</p>
-							</div>
-							<p class="small text-muted">12:00 PM | Aug 13</p>
-						</div>
-					</div>
-
-
-					<div class="media w-50 ml-auto mb-3">
-						<div class="media-body">
-							<div class="bg-primary rounded py-2 px-3 mb-2">
-								<p class="text-small mb-0 text-white">Test which is a new
-									approach to have all solutions</p>
-							</div>
-							<p class="small text-muted">12:00 PM | Aug 13</p>
-						</div>
-					</div>
-				</div>
-
-				<form action="#" class="bg-light">
-					<div class="input-group mb-3">
-						<input type="text" placeholder="Digite sua mensagem..."
-							aria-describedby="button-addon2"
-							class="form-control rounded-15 border-0 py-4 bg-chat">
-						<div class="input-group-append">
-							<button id="button-addon2" type="submit"
-								class="btn btn-outline-secondary">
-								<i class=""><img src="${contextPath}/assets/send.png"
-									alt="user" width="34" class="rounded-circle"></i>
-							</button>
-						</div>
-					</div>
-				</form>
-
-			</div>
 		</div>
 	</div>
 
@@ -183,6 +140,12 @@
 			© 2020 Copyright to <a href="#">GooBoot.com</a>
 		</div>
 	</footer>
+
+	<!-- jQuery -->
+	<script src="${contextPath}/js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="${contextPath}/js/bootstrap.min.js"></script>
 
 </body>
 </html>
