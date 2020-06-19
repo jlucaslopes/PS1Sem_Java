@@ -555,6 +555,15 @@ pre code {
   margin-left: auto;
 }
 
+.containernovo {
+  display: inline-block;
+  width: 40%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .container-boot {
   width: 22%;
   display: inline-block;
@@ -573,7 +582,7 @@ pre code {
   max-width: 40%;	
   display: inline-block;
   margin-left: 90px;
-  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 @media (min-width: 576px) {
@@ -640,6 +649,7 @@ pre code {
   margin-right: -15px;
   margin-left: -15px;
 }
+
 
 .no-gutters {
   margin-right: 0;
@@ -1758,7 +1768,8 @@ input::placeholder {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #212529;
+  color: #fff;
+  background-color: #2E466D;
 }
 
 .table th,
@@ -2630,6 +2641,12 @@ fieldset:disabled a.btn {
   border-color: #007bff;
 }
 
+.btn-back{
+  color: #000;
+  background-color: red;
+  border-color: transparent;
+}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #0069d9;
@@ -2700,8 +2717,25 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #28a745;
+  background-color: transparent;
   border-color: #28a745;
+}
+
+.btn-success-pessoal {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #4cae4c;
+}
+.btn-success-pessoal:focus,
+.btn-success-pessoal.focus {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #255625;
+}
+.btn-success-pessoal:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
 }
 
 .btn-success:hover {
@@ -2773,8 +2807,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-warning {
-  color: #212529;
-  background-color: #ffc107;
+  color: #fff;
+  background-color: transparent;
   border-color: #ffc107;
 }
 
@@ -2811,7 +2845,7 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
+  background-color: transparent;
   border-color: #dc3545;
 }
 
@@ -8098,6 +8132,17 @@ button.bg-dark:focus {
 .position-sticky {
   position: -webkit-sticky !important;
   position: sticky !important;
+}
+
+.my-custom-scrollbar {
+position: relative;
+height: 500px;
+overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+display: block;
+min-width: 100%;
 }
 
 .fixed-top {

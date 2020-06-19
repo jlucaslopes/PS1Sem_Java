@@ -22,10 +22,11 @@ public class SegmentsModel {
 	public SegmentsModel() {
 	}
 
-	public SegmentsModel(long id_segments, String name) {
+	public SegmentsModel(long id_segments, String name, BotModel bot) {
 		super();
 		this.id_segments = id_segments;
 		this.name = name;
+		this.bot = bot;
 	}
 
 	
@@ -60,5 +61,10 @@ public class SegmentsModel {
 	public void setBot(BotModel bot) {
 		this.bot = bot;
 	}	
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 }

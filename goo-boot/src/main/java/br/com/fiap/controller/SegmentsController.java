@@ -17,16 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.model.SegmentsModel;
-import br.com.fiap.model.BotModel;
 import br.com.fiap.repository.BotRepository;
 import br.com.fiap.repository.SegmentsRepository;
 
 
 @Controller
-@RequestMapping("/boot")
-public class GooBootController {
+@RequestMapping("/segments")
+public class SegmentsController {
 	
-	private static final String BOOT_FOLDER = "boot/";
+	private static final String BOOT_FOLDER = "segmentos/";
 	
 	@Autowired
 	public BotRepository BotRepository;
@@ -37,11 +36,11 @@ public class GooBootController {
 	@GetMapping("/form")
 	public String open(@RequestParam String page, 
 					   @RequestParam(required = false) Long id,
-					   @ModelAttribute("botModel") BotModel botModel, 
+					   @ModelAttribute("segmentsModel") SegmentsModel segmentsModel, 
 					   Model model) {
 		
-		if("boot-editar".equals(page)) {
-			model.addAttribute("botModel", BotRepository.findById(id).get());
+		if("segmento-editar".equals(page)) {
+			model.addAttribute("segmentsModel", SegmentsRepository.findById(id).get());
 		}
 		
 		model.addAttribute("segments", SegmentsRepository.findAll());
@@ -51,66 +50,55 @@ public class GooBootController {
 	
 	@GetMapping()
 	public String findAll(Model model) {
-		model.addAttribute("boot", BotRepository.findAll());
-		return BOOT_FOLDER +  "bootpage";
+		model.addAttribute("segments", SegmentsRepository.findAll());
+		return BOOT_FOLDER +  "segmenpage";
 	}
 	
 	@GetMapping("/{id}")
 	public String findById(@PathVariable("id") long id, Model model) {
 		
-		model.addAttribute("boot", BotRepository.findById(id).get());
-		return BOOT_FOLDER +  "boot-detalhe";
+		model.addAttribute("segments", SegmentsRepository.findById(id).get());
+		return BOOT_FOLDER +  "segmento-detalhe";
 	}
 	
 	@PostMapping()
-	public String save(@Valid BotModel botModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+	public String save(@Valid SegmentsModel segmentsModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("segments", SegmentsRepository.findAll());
-			return BOOT_FOLDER + "boot-novo";
+			return BOOT_FOLDER + "segmen-novo";
 		}
 		
-		BotModel botSalvo = BotRepository.save(botModel);
-		for (SegmentsModel segmen : botSalvo.getSegments()) {
-			segmen.setBot(botSalvo);
-			SegmentsRepository.save(segmen);
-		}
+		SegmentsRepository.save(segmentsModel);
 		redirectAttributes.addFlashAttribute("messages", "Produto cadastrado com sucesso!");
 		
-		return "redirect:/boot";
+		return "redirect:/segments";
 	}
 	
 	@PutMapping("/{id}")
-	public String update(@PathVariable("id") long id, @Valid BotModel botModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+	public String update(@PathVariable("id") long id, @Valid SegmentsModel segmentsModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		
-		if(bindingResult.hasErrors()) {
-			model.addAttribute("segments", SegmentsRepository.findAll());
-			
-			return BOOT_FOLDER + "boot-editar";
+		if(bindingResult.hasErrors()) {	
+			return BOOT_FOLDER + "segmen-editar";
 		}
 		
-		botModel.setId_bot(id);
-		BotModel bot = BotRepository.save(botModel);
+		segmentsModel.setId_segments(id);
+		SegmentsRepository.save(segmentsModel);
 		
-		for (SegmentsModel segmen : botModel.getSegments()) {
-			segmen.setBot(bot);;
-			SegmentsRepository.save(segmen);
-		}
 		
 		redirectAttributes.addFlashAttribute("messages", "Produto alterado com sucesso!");
 		
-		return "redirect:/boot";
+		return "redirect:/segments";
 	}
 	
 	@DeleteMapping("/{id}")
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
-		BotRepository.deleteById(id);
+		SegmentsRepository.deleteById(id);
 		redirectAttributes.addFlashAttribute("messages", "Produto excluído com sucesso!");
 
-		return "redirect:/boot";
+		return "redirect:/segments";
 	}
 	
 	
 }
- 

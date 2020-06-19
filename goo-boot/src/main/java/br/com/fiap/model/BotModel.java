@@ -55,7 +55,7 @@ public class BotModel {
 	}
 
 	@Column(name="NAME_BOT")
-	@Size(min = 2, max = 40, message = "Nome deve ter no mínimo 2 e no máximo 40 caracteres")
+	@Size(min = 2, max = 40, message = "Nome deve ter no mï¿½nimo 2 e no mï¿½ximo 40 caracteres")
 	public String getName() {
 		return name;
 	}
@@ -65,7 +65,7 @@ public class BotModel {
 	}
 
 	@Column(name="WELCOME_MSG")
-	@Size(min = 1, message = "Mensagem de boas vindas é obrigatória")
+	@Size(min = 1, message = "Mensagem de boas vindas ï¿½ obrigatï¿½ria")
 	public String getWelcome_msg() {
 		return welcome_msg;
 	}
@@ -75,7 +75,7 @@ public class BotModel {
 	}
 
 	@Column(name="FAREWELL_MSG")
-	@Size(min = 1, message = "Mensagem de despedida é obrigatória")
+	@Size(min = 1, message = "Mensagem de despedida ï¿½ obrigatï¿½ria")
 	public String getFarewell_msg() {
 		return farewell_msg;
 	}
@@ -85,7 +85,7 @@ public class BotModel {
 	}
 
 	@Column(name="DOWNTIME")
-	@DecimalMin(value = "0.1", message = "Informe o tempo mínimo de ausência para o BOT ser desligado")
+	@DecimalMin(value = "0.1", message = "Informe o tempo mï¿½nimo de ausï¿½ncia para o BOT ser desligado")
 	public BigDecimal getDowntime() {
 		return downtime;
 	}
@@ -95,7 +95,7 @@ public class BotModel {
 	}
 
 	@Column(name="DEFAULT_ANSWER")
-	@Size(min = 1, message = "Mensagem para fluxos não conhecidos é obrigatória")
+	@Size(min = 1, message = "Mensagem para fluxos nï¿½o conhecidos ï¿½ obrigatï¿½ria")
 	public String getDefault_answer() {
 		return default_answer;
 	}
