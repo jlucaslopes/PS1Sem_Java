@@ -30,8 +30,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="${contextPath}/boot">Home
-						<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link"
+					href="${contextPath}/boot">Home <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${contextPath}/segments">Segmentos</a></li>
@@ -70,55 +70,59 @@
 	<div class="containerlogo align-top py-5">
 
 		<div class="row overflow-hidden shadow-lg rounded"
-			style="width: 70rem;height: 37rem; background-color: #2E466D">
+			style="width: 70rem; height: 37rem; background-color: #2E466D">
 			<!-- Users box-->
-			<div class="col-5 px-1 pt-3" >
-				<div class="bg-white" style="width: 69.5rem">
-					<div class="bg-gray px-4 py-2 bg-light">
+			<div class="col-5 px-1 pt-3 rounded">
+				<div class="bg-light rounded" style="width: 69.5rem">
+					<div class="bg-gray px-4 py-2 bg-light rounded">
 						<p class="h5 mb-0 py-1" style="text-align: center">
-							<button type="button" style="float: left" class="create"
+							<button type="button" style="float: left; background-color: transparent; border: 0px" class="create"
 								value="create" aria-label="create">
 								<a href="${contextPath}/segments/form?page=segmen-novo"> <i
-									class="fa fa-plus"> Criar Segmento</i>
+									class="fa fa-plus"></i>
 								</a>
 							</button>
 							Segmentos
 						</p>
 					</div>
-					
-					<table class="table table-striped">
-					<thead>
-						<tr>
-							<th data-field="name">Nome</th>
-							<th data-field="bot">Bots</th>
-							<th class="actions" width="220">Ações</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-					<c:forEach items="${segments}" var="segments">
-						<tr>
-							<td>${segments.name}</td>
-							<td>${segments.bot.name}</td>
-							
-							<td class="actions" style="display: inline-block">
-							
-								<form:form action="${contextPath}/segments/${segments.id_segments}" method="delete">
-								
-									<a class="btn btn-success-pessoal btn-xs " href="${contextPath}/segments/${segments.id_segments}">Detalhes</a>
-									<a class="btn btn-warning btn-xs" href="${contextPath}/segments/form?page=segmen-editar&id=${segments.id_segments}">Editar</a>
-									<input type="submit" value="Excluir" class="btn btn-danger btn-xs">
-								</form:form>
-								
-							</td>
-						</tr>
-					</c:forEach>
-                    </tbody>
-				</table>
+
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						<table class="table table-striped ">
+							<thead class="">
+								<tr>
+									<th data-field="name">Nome</th>
+									<th data-field="bot" width="400px">Bots</th>
+									<th class="actions" width="300px">Ações</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<c:forEach items="${segments}" var="segments">
+									<tr>
+										<td>${segments.name}</td>
+										<td>${segments.bot.name}</td>
+
+										<td class="actions"><form:form
+												action="${contextPath}/segments/${segments.id_segments}"
+												method="delete">
+
+												<a class="btn btn-success-pessoal btn-xs "
+													href="${contextPath}/segments/${segments.id_segments}">Detalhes</a>
+												<a class="btn btn-warning btn-xs"
+													href="${contextPath}/segments/form?page=segmen-editar&id=${segments.id_segments}">Editar</a>
+												<input type="submit" value="Excluir"
+													class="btn btn-danger btn-xs">
+											</form:form></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<footer class="blockquote-footerboot font-small shadow-lg p-3 rounded">
 		<i class="fa fa-bullhorn d-inline-block float-right"></i>
