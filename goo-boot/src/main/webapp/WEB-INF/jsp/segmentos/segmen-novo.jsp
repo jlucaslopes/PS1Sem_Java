@@ -21,7 +21,7 @@
 
 	<nav
 		class="navbar navbar-expand-lg navbar-dark default-color fixed-top shadow-lg rounded">
-		<a class="navbar-brand" href="#"><strong>GooBoot</strong></a>
+		<a class="navbar-brand" href="${contextPath}/boot"><strong>GooBoot</strong></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -30,18 +30,23 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link"
+					href="${contextPath}/boot">Home <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Opinions</a>
-				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="${contextPath}/segments">Segmentos</a></li>
 			</ul>
 			<ul class="navbar-nav nav-flex-icons">
-				<li class="nav-item"><a class="nav-link"><i
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.facebook.com/vine.santos.752"><i
 						class="fa fa-facebook-f"></i></a></li>
-				<li class="nav-item"><a class="nav-link"><i
-						class="fa fa-twitter"></i></a></li>
-				<li class="nav-item"><a class="nav-link"><i
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.linkedin.com/in/vinicius-santos-024774184/"><i
+						class="fa fa-linkedin"></i></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://github.com/vinebks"><i class="fa fa-github"></i></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.instagram.com/vinne.santos/"><i
 						class="fa fa-instagram"></i></a></li>
 			</ul>
 		</div>
@@ -53,16 +58,13 @@
 
 	<div class="container-boot ">
 		<div class="cardboot" style="width: 23rem;">
-			<img src="${contextPath}/assets/chatbot.png" class="card-img-top"
+			<img src="${contextPath}/assets/segments.png" class="card-img-top"
 				alt="...">
 			<div class="card-body">
-				<h5 class="card-title titleboot text-center">GooBoot</h5>
-				<p class="card-text cardtext-boot">
-					O GooBot foi criado inicialmente como idéia para um projeto
-					acadêmico da faculdade FIAP. <br> <br> A principal idéia
-					do "BOT" é ser um companheiro para pessoas com complicações
-					emocionais, contendo alguns outros assuntos básicos.
-				</p>
+				<h5 class="card-title titleboot text-center">Criação</h5>
+				<p class="card-text cardtext-boot">Na pagina de criação de
+					segmentos você tem a possibilidade de criar um novo segmento para o
+					seu bot atender.</p>
 			</div>
 		</div>
 	</div>
@@ -74,10 +76,10 @@
 				<div class="col-lg-12">
 					<div class="well mt-2">
 
-						<h2 style="text-align: center">Novo Bot</h2>
+						<h2 style="text-align: center">Novo Segmento</h2>
 
-						<form:form modelAttribute="segmentsModel" action="${contextPath}/segments"
-							method="post">
+						<form:form modelAttribute="segmentsModel"
+							action="${contextPath}/segments" method="post">
 
 							<spring:hasBindErrors name="segmentsModel">
 								<div class="alert alert-danger" role="alert">
@@ -94,7 +96,7 @@
 
 							<hr>
 
-							<a class="btn btn-default btn-lg" href="${contextPath}/segments">Cancelar</a>
+							<a class="btn btn-back btn-lg" href="${contextPath}/segments">Cancelar</a>
 							<button type="submit" class="btn btn-primary btn-lg">Criar</button>
 
 							<br>
@@ -112,15 +114,6 @@
 		<div class="cardboot float-left" style="width: 17rem;">
 			<img src="${contextPath}/assets/help.png" class="card-img-top"
 				alt="...">
-			<div class="card-body">
-				<h5 class="card-title titleboot text-center">Dicas</h5>
-				<p class="card-text cardtext-boot text-left">
-					O GooBot foi criado inicialmente como idéia para um projeto
-					acadêmico da faculdade FIAP. <br> <br> A principal idéia
-					do "BOT" é ser um companheiro para pessoas com complicações
-					emocionais, contendo alguns outros assuntos básicos.
-				</p>
-			</div>
 		</div>
 	</div>
 

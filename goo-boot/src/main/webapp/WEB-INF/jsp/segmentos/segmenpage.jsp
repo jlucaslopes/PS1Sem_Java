@@ -21,7 +21,7 @@
 
 	<nav
 		class="navbar navbar-expand-lg navbar-dark default-color fixed-top shadow-lg rounded">
-		<a class="navbar-brand" href="#"><strong>GooBoot</strong></a>
+		<a class="navbar-brand" href="${contextPath}/boot"><strong>GooBoot</strong></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -33,19 +33,25 @@
 				<li class="nav-item active"><a class="nav-link"
 					href="${contextPath}/boot">Home <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="${contextPath}/segments">Segmentos</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Segmentos</a></li>
 			</ul>
 			<ul class="navbar-nav nav-flex-icons">
-				<li class="nav-item"><a class="nav-link"><i
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.facebook.com/vine.santos.752"><i
 						class="fa fa-facebook-f"></i></a></li>
-				<li class="nav-item"><a class="nav-link"><i
-						class="fa fa-twitter"></i></a></li>
-				<li class="nav-item"><a class="nav-link"><i
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.linkedin.com/in/vinicius-santos-024774184/"><i
+						class="fa fa-linkedin"></i></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://github.com/vinebks"><i class="fa fa-github"></i></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.instagram.com/vinne.santos/"><i
 						class="fa fa-instagram"></i></a></li>
 			</ul>
 		</div>
 	</nav>
+
+
 
 </header>
 
@@ -53,15 +59,17 @@
 
 	<div class="container-boot ">
 		<div class="cardboot" style="width: 23rem;">
-			<img src="${contextPath}/assets/chatbot.png" class="card-img-top"
+			<img src="${contextPath}/assets/segments.png" class="card-img-top"
 				alt="...">
 			<div class="card-body">
-				<h5 class="card-title titleboot text-center">GooBoot</h5>
+				<h5 class="card-title titleboot text-center">Segmentos</h5>
 				<p class="card-text cardtext-boot">
-					O GooBot foi criado inicialmente como idéia para um projeto
-					acadêmico da faculdade FIAP. <br> <br> A principal idéia
-					do "BOT" é ser um companheiro para pessoas com complicações
-					emocionais, contendo alguns outros assuntos básicos.
+					Os segmentos são parte principal de cada bot eles que definem a
+					personalidade que o bot ira ter e o assunto que o mesmo atende. <br>
+					<br> Sendo assim a partir de um momento em que você cria ou
+					vincula um segmento a um bot o mesmo ira se adaptar ao tipo do
+					segmento escolhido e suas respostas vai ser editada para atender o
+					tema em especifico.
 				</p>
 			</div>
 		</div>
@@ -76,8 +84,9 @@
 				<div class="bg-light rounded" style="width: 69.5rem">
 					<div class="bg-gray px-4 py-2 bg-light rounded">
 						<p class="h5 mb-0 py-1" style="text-align: center">
-							<button type="button" style="float: left; background-color: transparent; border: 0px" class="create"
-								value="create" aria-label="create">
+							<button type="button"
+								style="float: left; background-color: transparent; border: 0px"
+								class="create" value="create" aria-label="create">
 								<a href="${contextPath}/segments/form?page=segmen-novo"> <i
 									class="fa fa-plus"></i>
 								</a>
@@ -90,6 +99,7 @@
 						<table class="table table-striped ">
 							<thead class="">
 								<tr>
+									<th data-field="image"></th>
 									<th data-field="name">Nome</th>
 									<th data-field="bot" width="400px">Bots</th>
 									<th class="actions" width="300px">Ações</th>
@@ -99,6 +109,8 @@
 
 								<c:forEach items="${segments}" var="segments">
 									<tr>
+										<td><img style="width: 40px; height: 40px"
+											src="${contextPath}/assets/segments.png"></img></td>
 										<td>${segments.name}</td>
 										<td>${segments.bot.name}</td>
 
@@ -106,12 +118,15 @@
 												action="${contextPath}/segments/${segments.id_segments}"
 												method="delete">
 
-												<a class="btn btn-success-pessoal btn-xs "
-													href="${contextPath}/segments/${segments.id_segments}">Detalhes</a>
-												<a class="btn btn-warning btn-xs"
-													href="${contextPath}/segments/form?page=segmen-editar&id=${segments.id_segments}">Editar</a>
-												<input type="submit" value="Excluir"
-													class="btn btn-danger btn-xs">
+												<a class="btn btn-success btn-sm"
+													href="${contextPath}/segments/${segments.id_segments}"><i
+													class="fa fa-search"></i></a>
+												<a class="btn btn-warning btn-sm"
+													href="${contextPath}/segments/form?page=segmen-editar&id=${segments.id_segments}"><i
+													class="fa fa-edit"></i></a>
+												<button type="submit" class="btn btn-danger btn-sm">
+													<i class="fa fa-trash"></i>
+												</button>
 											</form:form></td>
 									</tr>
 								</c:forEach>

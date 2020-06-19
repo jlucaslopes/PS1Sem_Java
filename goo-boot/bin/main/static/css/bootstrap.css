@@ -2641,6 +2641,12 @@ fieldset:disabled a.btn {
   border-color: #007bff;
 }
 
+.btn-back{
+  color: #000;
+  background-color: red;
+  border-color: transparent;
+}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #0069d9;
@@ -2711,11 +2717,9 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #28a745;
+  background-color: transparent;
   border-color: #28a745;
 }
-
-#28a745
 
 .btn-success-pessoal {
   color: #fff;
@@ -2803,8 +2807,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-warning {
-  color: #212529;
-  background-color: #ffc107;
+  color: #fff;
+  background-color: transparent;
   border-color: #ffc107;
 }
 
@@ -2841,7 +2845,7 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
+  background-color: transparent;
   border-color: #dc3545;
 }
 

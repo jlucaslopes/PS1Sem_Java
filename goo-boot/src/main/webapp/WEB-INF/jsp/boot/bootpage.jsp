@@ -21,7 +21,7 @@
 
 	<nav
 		class="navbar navbar-expand-lg navbar-dark default-color fixed-top shadow-lg rounded">
-		<a class="navbar-brand" href="#"><strong>GooBoot</strong></a>
+		<a class="navbar-brand" href="${contextPath}/boot"><strong>GooBoot</strong></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -37,11 +37,16 @@
 					href="${contextPath}/segments">Segmentos</a></li>
 			</ul>
 			<ul class="navbar-nav nav-flex-icons">
-				<li class="nav-item"><a class="nav-link"><i
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.facebook.com/vine.santos.752"><i
 						class="fa fa-facebook-f"></i></a></li>
-				<li class="nav-item"><a class="nav-link"><i
-						class="fa fa-twitter"></i></a></li>
-				<li class="nav-item"><a class="nav-link"><i
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.linkedin.com/in/vinicius-santos-024774184/"><i
+						class="fa fa-linkedin"></i></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://github.com/vinebks"><i class="fa fa-github"></i></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://www.instagram.com/vinne.santos/"><i
 						class="fa fa-instagram"></i></a></li>
 			</ul>
 		</div>
@@ -58,10 +63,11 @@
 			<div class="card-body">
 				<h5 class="card-title titleboot text-center">GooBoot</h5>
 				<p class="card-text cardtext-boot">
-					O GooBot foi criado inicialmente como idéia para um projeto
-					acadêmico da faculdade FIAP. <br> <br> A principal idéia
-					do "BOT" é ser um companheiro para pessoas com complicações
-					emocionais, contendo alguns outros assuntos básicos.
+					O GooBot foi criado para gerenciar chat bots de acordo com a sua
+					escolha. <br> <br> A principal idéia do bot manager é
+					facilitar a maneira em que você consegue criar, deletar, alterar e
+					excluir um chat bot de acordo com a sua vontade, deixando assim bem
+					mais facil a sua experiência como usuario.
 				</p>
 			</div>
 		</div>
@@ -76,8 +82,9 @@
 				<div class="bg-light rounded" style="width: 69.5rem">
 					<div class="bg-gray px-4 py-2 bg-light rounded">
 						<p class="h5 mb-0 py-1" style="text-align: center">
-							<button type="button" style="float: left; background-color: transparent; border: 0px" class="create"
-								value="create" aria-label="create">
+							<button type="button"
+								style="float: left; background-color: transparent; border: 0px"
+								class="create" value="create" aria-label="create">
 								<a href="${contextPath}/boot/form?page=boot-novo"> <i
 									class="fa fa-plus"></i>
 								</a>
@@ -90,6 +97,7 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
+									<th data-field="image"></th>
 									<th data-field="name">Nome</th>
 									<th data-field="segments" width="400">Categoria</th>
 									<th class="actions" width="300">Ações</th>
@@ -99,18 +107,23 @@
 
 								<c:forEach items="${boot}" var="boot">
 									<tr>
+										<td><img style="width: 40px; height: 40px"
+											src="${contextPath}/assets/chatbot.png"></img></td>
 										<td>${boot.name}</td>
 										<td>${boot.segments}</td>
 
-										<td class="actions" style="display: inline-block"><form:form
+										<td class="actions"><form:form
 												action="${contextPath}/boot/${boot.id_bot}" method="delete">
 
-												<a class="btn btn-success-pessoal btn-xs "
-													href="${contextPath}/boot/${boot.id_bot}">Detalhes</a>
-												<a class="btn btn-warning btn-xs"
-													href="${contextPath}/boot/form?page=boot-editar&id=${boot.id_bot}">Editar</a>
-												<input type="submit" value="Excluir"
-													class="btn btn-danger btn-xs">
+												<a class="btn btn-success btn-sm"
+													href="${contextPath}/boot/${boot.id_bot}"><i
+													class="fa fa-search"></i></a>
+												<a class="btn btn-warning btn-sm"
+													href="${contextPath}/boot/form?page=boot-editar&id=${boot.id_bot}"><i
+													class="fa fa-edit"></i></a>
+												<button type="submit" class="btn btn-danger btn-sm">
+													<i class="fa fa-trash"></i>
+												</button>
 											</form:form></td>
 									</tr>
 								</c:forEach>
