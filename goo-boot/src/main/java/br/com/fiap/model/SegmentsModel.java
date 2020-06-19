@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -23,10 +22,11 @@ public class SegmentsModel {
 	public SegmentsModel() {
 	}
 
-	public SegmentsModel(long id_segments, String name) {
+	public SegmentsModel(long id_segments, String name, BotModel bot) {
 		super();
 		this.id_segments = id_segments;
 		this.name = name;
+		this.bot = bot;
 	}
 
 	
@@ -61,5 +61,10 @@ public class SegmentsModel {
 	public void setBot(BotModel bot) {
 		this.bot = bot;
 	}	
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 }

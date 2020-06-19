@@ -555,6 +555,15 @@ pre code {
   margin-left: auto;
 }
 
+.containernovo {
+  display: inline-block;
+  width: 40%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .container-boot {
   width: 22%;
   display: inline-block;
@@ -573,7 +582,7 @@ pre code {
   max-width: 40%;	
   display: inline-block;
   margin-left: 90px;
-  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 @media (min-width: 576px) {
@@ -640,6 +649,7 @@ pre code {
   margin-right: -15px;
   margin-left: -15px;
 }
+
 
 .no-gutters {
   margin-right: 0;
@@ -2702,6 +2712,25 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;
+}
+
+#28a745
+
+.btn-success-pessoal {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #4cae4c;
+}
+.btn-success-pessoal:focus,
+.btn-success-pessoal.focus {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #255625;
+}
+.btn-success-pessoal:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
 }
 
 .btn-success:hover {

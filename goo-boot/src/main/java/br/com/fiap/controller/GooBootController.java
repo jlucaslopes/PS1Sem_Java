@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.fiap.model.SegmentsModel;
 import br.com.fiap.model.BotModel;
 import br.com.fiap.repository.BotRepository;
 import br.com.fiap.repository.SegmentsRepository;
@@ -53,16 +55,49 @@ public class GooBootController {
 		return BOOT_FOLDER +  "bootpage";
 	}
 	
+	@GetMapping("/{id}")
+	public String findById(@PathVariable("id") long id, Model model) {
+		
+		model.addAttribute("boot", BotRepository.findById(id).get());
+		return BOOT_FOLDER +  "boot-detalhe";
+	}
+	
 	@PostMapping()
 	public String save(@Valid BotModel botModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		
 		if(bindingResult.hasErrors()) {
-			model.addAttribute("categorias", SegmentsRepository.findAll());
+			model.addAttribute("segments", SegmentsRepository.findAll());
 			return BOOT_FOLDER + "boot-novo";
 		}
 		
-		BotRepository.save(botModel);
+		BotModel botSalvo = BotRepository.save(botModel);
+		for (SegmentsModel segmen : botSalvo.getSegments()) {
+			segmen.setBot(botSalvo);
+			SegmentsRepository.save(segmen);
+		}
 		redirectAttributes.addFlashAttribute("messages", "Produto cadastrado com sucesso!");
+		
+		return "redirect:/boot";
+	}
+	
+	@PutMapping("/{id}")
+	public String update(@PathVariable("id") long id, @Valid BotModel botModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+		
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("segments", SegmentsRepository.findAll());
+			
+			return BOOT_FOLDER + "boot-editar";
+		}
+		
+		botModel.setId_bot(id);
+		BotModel bot = BotRepository.save(botModel);
+		
+		for (SegmentsModel segmen : botModel.getSegments()) {
+			segmen.setBot(bot);;
+			SegmentsRepository.save(segmen);
+		}
+		
+		redirectAttributes.addFlashAttribute("messages", "Produto alterado com sucesso!");
 		
 		return "redirect:/boot";
 	}

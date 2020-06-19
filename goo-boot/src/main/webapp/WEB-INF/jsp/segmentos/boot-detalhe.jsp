@@ -67,75 +67,51 @@
 		</div>
 	</div>
 
-	<div class="container-boot align-top justify-content-top">
-		<div class="row shadow-lg rounded justify-content-center"
-			style="width: 50rem; height: 49rem; background-color: #2E466D; color: #fff">
-			<div class="row">
+	<div class="container-boot align-top justify-content-center text-left">
+		<div class="row shadow-lg rounded justify-content-center text-left"
+			style="width: 50rem; height: 35rem; background-color: #2E466D; color: #fff">
+			<div class="container text-left">
 				<div class="col-lg-12">
-					<div class="well mt-2">
+					<div class="well mt-1">
 
-						<h2 style="text-align: center">Novo Bot</h2>
-
-						<form:form modelAttribute="botModel" action="${contextPath}/boot"
-							method="post">
-
-							<spring:hasBindErrors name="botModel">
-								<div class="alert alert-danger" role="alert">
-									<form:errors path="*" class="has-error" />
-								</div>
-							</spring:hasBindErrors>
-
-							<div class="form-group">
-								<label class="control-label" for="name">Nome:</label>
-								<form:input type="text" path="name" id="name"
-									class="form-control" maxlength="50" size="50" />
-								<font color="red"><form:errors path="name" /></font><br />
-							</div>
-
-							<div class="form-group">
-								<label class="control-label" for="segments">Segmentos:</label>
-
-								<form:select multiple="true" path="segments">
-									<form:options items="${segments}" itemValue="id_segments"
-										itemLabel="name" />
-								</form:select>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label" for="welcome_msg">Msg. Boas-Vindas:</label>
-								<form:input type="text" path="welcome_msg" id="welcome_msg" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="welcome_msg" /></font><br />
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="farewell_msg">Msg. Despedida:</label>
-								<form:input type="text" path="farewell_msg" id="farewell_msg" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="farewell_msg" /></font><br />
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="downtime">Tempo para desconectar:</label>
-								<form:input type="number" path="downtime" id="downtime" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="downtime" /></font><br />
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="default_answer">Msg. Padrao:</label>
-								<form:input type="text" path="default_answer" id="default_answer" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="default_answer" /></font><br />
-							</div>
-							<hr>
-
-							<a class="btn btn-default btn-lg" href="${contextPath}/boot">Cancelar</a>
-							<button type="submit" class="btn btn-primary btn-lg">Criar</button>
-
-							<br>
-							<br>
-						</form:form>
+						<h2>${boot.name}</h2>
+					
+						<div class="form-group">
+							<label class="control-label" for="name">Nome:</label>
+							<b>${boot.name}</b>
+                        </div>
+                        
+                        <div class="form-group">
+							<label class="control-label" for="nome">Segments:</label>
+							<label class="label label-default">${boot.segments}</label>
+                        </div>
+                        
+                        <div class="form-group">
+							<label class="control-label" for="welcome_msg">Mensagem de Boas-vindas:</label>
+							<label class="label label-default">${boot.welcome_msg}</label>
+                        </div>
+                        
+                        <div class="form-group">
+							<label class="control-label" for="farewell_msg">Mensagem de despedida:</label>
+							<label class="label label-default">${boot.farewell_msg}</label>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label" for="downtime">Tempo para desconectar:</label>
+							<label class="label label-default">${boot.downtime}</label>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label" for="default_answer">Mensagem padrao:</label>
+							<label class="label label-default">${boot.default_answer}</label>
+						</div>
+						
+						<hr>
+						
+						<a class="btn btn-default btn-lg" href="${contextPath}/boot">Voltar</a>
+                            
+                        <br>
+                        <br>
 
 					</div>
 				</div>

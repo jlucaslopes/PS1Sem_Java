@@ -76,8 +76,7 @@
 
 						<h2 style="text-align: center">Novo Bot</h2>
 
-						<form:form modelAttribute="botModel" action="${contextPath}/boot"
-							method="post">
+						<form:form modelAttribute="botModel" action="${contextPath}/boot/${botModel.id_bot}" method="put">
 
 							<spring:hasBindErrors name="botModel">
 								<div class="alert alert-danger" role="alert">
@@ -131,7 +130,7 @@
 							<hr>
 
 							<a class="btn btn-default btn-lg" href="${contextPath}/boot">Cancelar</a>
-							<button type="submit" class="btn btn-primary btn-lg">Criar</button>
+							<button type="submit" class="btn btn-primary btn-lg">Alterar</button>
 
 							<br>
 							<br>
