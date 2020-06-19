@@ -74,11 +74,11 @@
 				<div class="col-lg-12">
 					<div class="well mt-2">
 
-						<h2 style="text-align: center">Novo Bot</h2>
+						<h2 style="text-align: center">Novo Segmento</h2>
 
-						<form:form modelAttribute="botModel" action="${contextPath}/boot/${botModel.id_bot}" method="put">
+						<form:form modelAttribute="segmentsModel" action="${contextPath}/segments/${segmentsModel.id_segments}" method="put">
 
-							<spring:hasBindErrors name="botModel">
+							<spring:hasBindErrors name="segmentsModel">
 								<div class="alert alert-danger" role="alert">
 									<form:errors path="*" class="has-error" />
 								</div>
@@ -91,45 +91,9 @@
 								<font color="red"><form:errors path="name" /></font><br />
 							</div>
 
-							<div class="form-group">
-								<label class="control-label" for="segments">Segmentos:</label>
-
-								<form:select multiple="true" path="segments">
-									<form:options items="${segments}" itemValue="id_segments"
-										itemLabel="name" />
-								</form:select>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label" for="welcome_msg">Msg. Boas-Vindas:</label>
-								<form:input type="text" path="welcome_msg" id="welcome_msg" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="welcome_msg" /></font><br />
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="farewell_msg">Msg. Despedida:</label>
-								<form:input type="text" path="farewell_msg" id="farewell_msg" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="farewell_msg" /></font><br />
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="downtime">Tempo para desconectar:</label>
-								<form:input type="number" path="downtime" id="downtime" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="downtime" /></font><br />
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="default_answer">Msg. Padrao:</label>
-								<form:input type="text" path="default_answer" id="default_answer" class="form-control"
-									maxlength="50" size="50" />
-								<font color="red"><form:errors path="default_answer" /></font><br />
-							</div>
 							<hr>
 
-							<a class="btn btn-default btn-lg" href="${contextPath}/boot">Cancelar</a>
+							<a class="btn btn-default btn-lg" href="${contextPath}/segments">Cancelar</a>
 							<button type="submit" class="btn btn-primary btn-lg">Alterar</button>
 
 							<br>

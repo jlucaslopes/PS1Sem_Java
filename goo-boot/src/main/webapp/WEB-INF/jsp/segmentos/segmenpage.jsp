@@ -30,11 +30,11 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<li class="nav-item active"><a class="nav-link" href="${contextPath}/boot">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${contextPath}/boot-novo">Opinions</a></li>
+					href="${contextPath}/segments">Segmentos</a></li>
 			</ul>
 			<ul class="navbar-nav nav-flex-icons">
 				<li class="nav-item"><a class="nav-link"><i
@@ -78,11 +78,11 @@
 						<p class="h5 mb-0 py-1" style="text-align: center">
 							<button type="button" style="float: left" class="create"
 								value="create" aria-label="create">
-								<a href="${contextPath}/boot/form?page=boot-novo"> <i
-									class="fa fa-plus"> Criar Bot</i>
+								<a href="${contextPath}/segments/form?page=segmen-novo"> <i
+									class="fa fa-plus"> Criar Segmento</i>
 								</a>
 							</button>
-							Bots
+							Segmentos
 						</p>
 					</div>
 					
@@ -90,23 +90,23 @@
 					<thead>
 						<tr>
 							<th data-field="name">Nome</th>
-							<th data-field="segments">Categoria</th>
+							<th data-field="bot">Bots</th>
 							<th class="actions" width="220">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
 					
-					<c:forEach items="${boot}" var="boot">
+					<c:forEach items="${segments}" var="segments">
 						<tr>
-							<td>${boot.name}</td>
-							<td>${boot.segments}</td>
+							<td>${segments.name}</td>
+							<td>${segments.bot.name}</td>
 							
 							<td class="actions" style="display: inline-block">
 							
-								<form:form action="${contextPath}/boot/${boot.id_bot}" method="delete">
+								<form:form action="${contextPath}/segments/${segments.id_segments}" method="delete">
 								
-									<a class="btn btn-success-pessoal btn-xs " href="${contextPath}/boot/${boot.id_bot}">Detalhes</a>
-									<a class="btn btn-warning btn-xs" href="${contextPath}/boot/form?page=boot-editar&id=${boot.id_bot}">Editar</a>
+									<a class="btn btn-success-pessoal btn-xs " href="${contextPath}/segments/${segments.id_segments}">Detalhes</a>
+									<a class="btn btn-warning btn-xs" href="${contextPath}/segments/form?page=segmen-editar&id=${segments.id_segments}">Editar</a>
 									<input type="submit" value="Excluir" class="btn btn-danger btn-xs">
 								</form:form>
 								

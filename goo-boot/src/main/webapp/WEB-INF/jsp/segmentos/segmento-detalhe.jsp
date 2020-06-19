@@ -74,44 +74,22 @@
 				<div class="col-lg-12">
 					<div class="well mt-1">
 
-						<h2>${boot.name}</h2>
-					
+						<h2>${segments.name}</h2>
+
 						<div class="form-group">
-							<label class="control-label" for="name">Nome:</label>
-							<b>${boot.name}</b>
-                        </div>
-                        
-                        <div class="form-group">
-							<label class="control-label" for="nome">Segments:</label>
-							<label class="label label-default">${boot.segments}</label>
-                        </div>
-                        
-                        <div class="form-group">
-							<label class="control-label" for="welcome_msg">Mensagem de Boas-vindas:</label>
-							<label class="label label-default">${boot.welcome_msg}</label>
-                        </div>
-                        
-                        <div class="form-group">
-							<label class="control-label" for="farewell_msg">Mensagem de despedida:</label>
-							<label class="label label-default">${boot.farewell_msg}</label>
+							<label class="control-label" for="name">Nome:</label> <b>${segments.name}</b>
 						</div>
-						
+
 						<div class="form-group">
-							<label class="control-label" for="downtime">Tempo para desconectar:</label>
-							<label class="label label-default">${boot.downtime}</label>
+							<label class="control-label" for="bot">Bots:</label> <label class="label label-default">${segments.bot.name}</label>
 						</div>
-						
-						<div class="form-group">
-							<label class="control-label" for="default_answer">Mensagem padrao:</label>
-							<label class="label label-default">${boot.default_answer}</label>
-						</div>
-						
+
+
 						<hr>
-						
-						<a class="btn btn-default btn-lg" href="${contextPath}/boot">Voltar</a>
-                            
-                        <br>
-                        <br>
+
+						<a class="btn btn-default btn-lg" href="${contextPath}/segments">Voltar</a>
+
+						<br> <br>
 
 					</div>
 				</div>
